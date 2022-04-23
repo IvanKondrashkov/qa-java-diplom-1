@@ -1,4 +1,4 @@
-package praktikum;
+package ru.yandex.praktikum;
 
 /**
  * Перечисление с типами ингредиентов.
