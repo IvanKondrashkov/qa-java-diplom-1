@@ -3,8 +3,8 @@ package ru.yandex.praktikum;
 import java.util.List;
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertEquals;
@@ -15,14 +15,14 @@ public class BurgerTest {
     private Bun bun;
     @Mock
     private Ingredient ingredient;
+    @Mock
     private Ingredient sauce;
+    @Mock
     private Ingredient filling;
     private Burger burger;
 
     @Before
     public void createNewInstance() {
-        sauce = new Ingredient(IngredientType.SAUCE, "chili", 20.0f);
-        filling = new Ingredient(IngredientType.FILLING, "cheese", 15.5f);
         burger = new Burger();
     }
 
@@ -31,7 +31,7 @@ public class BurgerTest {
         burger.setBuns(bun);
         Bun actual = burger.bun;
 
-        assertEquals(bun, actual);
+        assertEquals("Incorrect introduction of the bun dependency into the burger", bun, actual);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class BurgerTest {
         List<Ingredient> expected = List.of(ingredient);
         List<Ingredient> actual = burger.ingredients;
 
-        assertEquals(expected, actual);
+        assertEquals("Incorrect addition of an ingredient in the list", expected, actual);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class BurgerTest {
         burger.removeIngredient(0);
         List<Ingredient> actual = burger.ingredients;
 
-        assertEquals(List.of(), actual);
+        assertEquals("Incorrect removal of an ingredient in the list", List.of(), actual);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class BurgerTest {
         burger.moveIngredient(0, 1);
         Ingredient actual = burger.ingredients.get(1);
 
-        assertEquals(filling, actual);
+        assertEquals("Incorrect movement of an ingredient in the list", filling, actual);
     }
 
     @Test
@@ -87,6 +87,6 @@ public class BurgerTest {
         String expected = receipt.toString();
         String actual = burger.getReceipt();
 
-        assertEquals(expected, actual);
+        assertEquals("Incorrect burger receipt", expected, actual);
     }
 }
