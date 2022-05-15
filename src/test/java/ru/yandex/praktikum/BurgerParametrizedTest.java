@@ -43,6 +43,6 @@ public class BurgerParametrizedTest {
         float expected = bun.price * 2 + sauce.price + filling.price;
         float actual = burger.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Incorrect values burger price", expected, actual, 0);
     }
 }

@@ -17,7 +17,7 @@ public class IngredientTest {
         String expected = "chili";
         String actual = ingredient.getName();
 
-        assertEquals(expected, actual);
+        assertEquals("Incorrect values ingredient name", expected, actual);
     }
 
     @Test
@@ -25,6 +25,6 @@ public class IngredientTest {
         float expected = 20.0f;
         float actual = ingredient.getPrice();
 
-        assertEquals(expected, actual, 0);
+        assertEquals("Incorrect values ingredient price", expected, actual, 0);
     }
 }
